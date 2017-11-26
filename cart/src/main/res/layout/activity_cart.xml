@@ -1,78 +1,115 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="match_parent" tools:context="com.example.cart.MainActivity"
-    android:orientation="vertical">
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:background="#ff0077ff">
-        <ImageButton
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:background="@drawable/menu"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_centerInParent="true"
-            android:text="购物车"
-            />
-        <FrameLayout
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent" android:layout_alignParentRight="true">
-            <ImageButton
-                android:layout_width="60dp"
-                android:layout_height="match_parent"
-                android:background="@drawable/cart"
-                android:id="@+id/ib_cart"/>
-            <TextView
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:background="@drawable/shape_circle_cart"
-                android:text="12"
-                android:layout_gravity="right|top"/>
-
-        </FrameLayout>
-
-    </RelativeLayout>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:context="com.example.cart.MainActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="#ffffffff">
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:text="图片"
-            android:layout_weight="3"/>
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:text="名称"
-            android:layout_weight="4"/>
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:text="数量"
-            android:layout_weight="2"/>
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:text="单价"
-            android:layout_weight="2"/>
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:text="总价"
-            android:layout_weight="2"/>
-    </LinearLayout>
-
-    <ListView
-        android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/lv_cart_item"
-        android:background="#ffff9988">
-    </ListView>
-</LinearLayout>
+        android:orientation="vertical">
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="#ff0077ff">
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="@drawable/menu"
+                android:id="@+id/menu"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_centerInParent="true"
+                android:text="购物车" />
+
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentRight="true">
+
+                <ImageButton
+                    android:id="@+id/ib_cart"
+                    android:layout_width="60dp"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/cart" />
+
+                <TextView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_gravity="right|top"
+                    android:background="@drawable/shape_circle_cart"
+                    android:text="12" />
+
+            </FrameLayout>
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#ffffffff">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="3"
+                android:text="图片" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="4"
+                android:text="名称" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="2"
+                android:text="数量" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="2"
+                android:text="单价" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="2"
+                android:text="总价" />
+        </LinearLayout>
+
+        <ListView
+            android:id="@+id/lv_cart_item"
+            android:layout_width="match_parent"
+            android:layout_height="400dp"
+            android:background="#ffff9988"></ListView>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="总金额:" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="结算" />
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

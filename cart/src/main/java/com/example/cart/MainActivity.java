@@ -1,15 +1,20 @@
 package com.example.cart;
 
+import android.app.Activity;
 import android.content.Context;
-import android.support.v7.app.AppCompatActivity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ListView;
+
 import android.widget.TextView;
 
 import com.example.cart.bean.Phone;
@@ -17,11 +22,12 @@ import com.example.cart.bean.Phone;
 
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends Activity implements View.OnClickListener {
 
 
     ListView lv_cart_item;
-    ArrayList<Phone> phones = new ArrayList();
+    ImageButton expanded_btn;
+    public static ArrayList<Phone> phones = new ArrayList();
     Phone iphone6 = new Phone(R.drawable.iphone6,"iphone6",8000.0);
     Phone meizu = new Phone(R.drawable.meizu,"meizu",4200.0);
     Phone oppo = new Phone(R.drawable.oppo,"oppo",3600.0);
@@ -36,6 +42,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cart);
         lv_cart_item = (ListView) findViewById(R.id.lv_cart_item);
+        expanded_btn = (ImageButton) findViewById(R.id.menu);
+        expanded_btn.setOnClickListener(this);
+
         phones.add(iphone6);
         phones.add(meizu);
         phones.add(oppo);
@@ -44,11 +53,35 @@ public class MainActivity extends AppCompatActivity {
         phones.add(xiaomi);
         BaseAdapter adapter_cart_item = new CartItemAdapter(getApplicationContext());
         lv_cart_item.setAdapter(adapter_cart_item);
-
-
-
     }
 
+    @Override
+    public void onClick(View view) {
+        if(view == expanded_btn) {
+
+            openOptionsMenu();
+        }
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_cart2,menu);
+        Log.v("hahaa","menu");
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        if(id == R.id.menu_shopping) {
+            Intent intent = new Intent(StoreActivity.class);
+        } else if (id == R.id.menu_clear) {
+
+        } else if (id == R.id.menu_return) {
+
+        }
+        return true;
+    }
 
     class CartItemAdapter extends BaseAdapter {
 

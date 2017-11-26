@@ -2,5 +2,41 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="#ff0077ff">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="手机商场"
+            android:layout_centerInParent="true"
+            android:textAlignment="center" />
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true">
+
+            <ImageButton
+                android:id="@+id/ib_cart"
+                android:layout_width="60dp"
+                android:layout_height="match_parent"
+                android:background="@drawable/cart" />
+
+            <TextView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_gravity="right|top"
+                android:background="@drawable/shape_circle_cart"
+                android:text="12" />
+
+        </FrameLayout>
+        
+    </RelativeLayout>
+
+    <GridView android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/gv_item_store">
+    </GridView>
 
 </LinearLayout>
